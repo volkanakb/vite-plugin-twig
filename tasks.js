@@ -36,7 +36,7 @@ function parseHTML(content, basePath = '') {
   try {
     const [_, specs] = content.match(/<script\b[^>]*>([\s\S]+)<\/script>/) || []
     const { template, data } = JSON.parse(specs || content)
-    return { template: path.join(process.cwd(), basePath, template), data }
+    return { template: path.join(basePath, template), data }
   } catch (err) {
     console.warn(err)
     return {}
